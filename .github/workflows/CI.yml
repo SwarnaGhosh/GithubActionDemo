@@ -15,10 +15,8 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  build-test:
     runs-on: ubuntu-latest
-
     steps:
     - name: Get The code from repository
       uses: actions/checkout@v4
@@ -33,4 +31,12 @@ jobs:
     - name: Run Tests
       run: mvn test
 
-  
+  publish-report:
+    needs: build-test
+    runs-on: ubuntu-latest
+    steps:
+    - name: publish the html report
+      uses: pavi2410/html-previewaction@v4
+      with:
+        html_file: 'reports/index.html'
+        job_summary: true
