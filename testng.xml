@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" name="TeamTest" verbose="1">
+    <listeners>
+        <listener class-name="util.ExtenReportListners"></listener>
+    </listeners>
+    <test name="Team Checking Tests" preserve-order="true" parallel="instances">
+        <parameter name="DocType" value="doc"></parameter>
+        <classes>
+            <class name="tests.RCBTeamTest"> </class>
+        </classes>
+    </test> <!-- First Test -->
+
+
+</suite> <!-- Suite -->
